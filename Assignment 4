@@ -1,0 +1,26 @@
+# Online Exam Result
+
+# Student Details
+student_name = "Pratibha Patil"
+marks_obtained = 30
+percentage = 30.0
+passed = marks_obtained >= 35
+
+# Print Result Summary
+print("=" * 40)
+print("         ONLINE EXAM RESULT")
+print("=" * 40)
+print("Student Name   :", student_name)
+print("Marks Obtained :", marks_obtained)
+print("Percentage     :", percentage, "%")
+print("Passed         :", passed)
+
+# Check Pass/Fail
+if passed:
+    print("Result         : PASS")
+else:
+    marks_needed = 35 - marks_obtained
+    print("Result         : FAIL")
+    print("Marks Needed to Pass :", marks_needed)
+
+print("=" * 40)

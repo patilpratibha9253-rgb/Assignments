@@ -1,0 +1,13 @@
+# Hospital Patient Record
+
+# Variables
+patient_name = "Pratibha Patil"
+age = 21
+weight = 55.5
+is_insured = True
+
+# Print values with their datatypes
+print("Patient Name :", patient_name, "| Data Type:", type(patient_name))
+print("Age          :", age, "| Data Type:", type(age))
+print("Weight       :", weight, "| Data Type:", type(weight))
+print("Is Insured   :", is_insured, "| Data Type:", type(is_insured))

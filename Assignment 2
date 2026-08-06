@@ -1,0 +1,32 @@
+# Grocery Bill
+
+# Store Details
+shop_name = "Fresh Mart"
+
+# Item Prices
+item1_price = 120
+item2_price = 80
+item3_price = 150
+
+# Calculate Total
+total = item1_price + item2_price + item3_price
+
+# Calculate GST (18%)
+gst = total * 18 / 100
+
+# Final Amount
+final_amount = total + gst
+
+# Print Bill
+print("=" * 40)
+print("          GROCERY BILL")
+print("=" * 40)
+print("Shop Name     :", shop_name)
+print("Item 1 Price  : ₹", item1_price)
+print("Item 2 Price  : ₹", item2_price)
+print("Item 3 Price  : ₹", item3_price)
+print("-" * 40)
+print("Total         : ₹", total)
+print("GST (18%)     : ₹", gst)
+print("Final Amount  : ₹", final_amount)
+print("=" * 40)

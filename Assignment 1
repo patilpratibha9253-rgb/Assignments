@@ -1,0 +1,23 @@
+# Student ID Card Generator
+
+# Variables
+student_name = "Pratibha Patil"
+roll_number = "BCA101"
+branch = "BCA"
+semester = "6th Semester"
+college_name = "SR Kanti College, Mudhol"
+
+# Bonus: Email ID
+email_id = student_name.lower().replace(" ", "") + roll_number.lower() + "@college.edu"
+
+# Print ID Card
+print("=" * 40)
+print("         STUDENT ID CARD")
+print("=" * 40)
+print("College Name :", college_name)
+print("Student Name :", student_name)
+print("Roll Number  :", roll_number)
+print("Branch       :", branch)
+print("Semester     :", semester)
+print("Email ID     :", email_id)
+print("=" * 40)

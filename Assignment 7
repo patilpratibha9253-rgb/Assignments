@@ -1,0 +1,19 @@
+# Company Email Generator
+
+# Store Values
+first_name = "John"
+last_name = "Doe"
+company_name = "abccompany"
+
+# Create Email
+email = first_name.lower() + "." + last_name.lower() + "@" + company_name.lower() + ".com"
+
+# Print Details
+print("=" * 45)
+print("      COMPANY EMAIL GENERATOR")
+print("=" * 45)
+print("Original Name   :", first_name, last_name)
+print("Email           :", email)
+print("Uppercase Email :", email.upper())
+print("Length of Email :", len(email))
+print("=" * 45)

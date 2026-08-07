@@ -1,0 +1,24 @@
+# Electricity Bill
+
+# Store Values
+previous_reading = 1250
+current_reading = 1400
+cost_per_unit = 8.50
+
+# Calculate Units Consumed
+units_consumed = current_reading - previous_reading
+
+# Calculate Total Bill
+total_bill = units_consumed * cost_per_unit
+
+# Print Bill
+print("=" * 40)
+print("         ELECTRICITY BILL")
+print("=" * 40)
+print("Previous Reading :", previous_reading)
+print("Current Reading  :", current_reading)
+print("Units Consumed   :", units_consumed)
+print("Cost Per Unit    : ₹", cost_per_unit)
+print("-" * 40)
+print("Total Bill       : ₹", total_bill)
+print("=" * 40)

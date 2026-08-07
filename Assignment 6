@@ -1,0 +1,22 @@
+# Product Discount Calculator
+
+# Store Values
+product_price = 1500.00
+discount_percentage = 20
+
+# Calculate Discount Amount
+discount_amount = (product_price * discount_percentage) / 100
+
+# Calculate Final Price
+final_price = product_price - discount_amount
+
+# Print Bill
+print("=" * 40)
+print("       PRODUCT DISCOUNT BILL")
+print("=" * 40)
+print("Product Price        : ₹", product_price)
+print("Discount Percentage  :", discount_percentage, "%")
+print("Discount Amount      : ₹", discount_amount)
+print("-" * 40)
+print("Final Price          : ₹", round(final_price, 2))
+print("=" * 40)

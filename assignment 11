@@ -1,0 +1,46 @@
+import random
+
+resources = 100
+money = 50
+day = 1
+
+while day <= 10:
+    print(f"\nDay {day}")
+    print("Resources:", resources)
+    print("Money:", money)
+
+    # AI decision
+    if resources < 30:
+        action = "Buy resources"
+        money -= 10
+        resources += 30
+
+    elif money < 20:
+        action = "Sell crops"
+        money += 20
+        resources -= 10
+
+    else:
+        action = random.choice([
+            "Plant crops",
+            "Raise animals",
+            "Sell crops"
+        ])
+
+        if action == "Plant crops":
+            resources -= 15
+            money += 25
+
+        elif action == "Raise animals":
+            resources -= 20
+            money += 30
+
+        elif action == "Sell crops":
+            money += 15
+
+    print("AI Action:", action)
+
+    day += 1
+
+print("\nFinal Money:", money)
+print("Final Resources:", resources)

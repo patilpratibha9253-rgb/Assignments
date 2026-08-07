@@ -1,0 +1,18 @@
+# Login Attempts using While Loop
+
+correct_password = "admin123"
+attempts = 0
+max_attempts = 3
+
+while attempts < max_attempts:
+    password = input("Enter Password: ")
+
+    if password == correct_password:
+        print("Login Successful")
+        break
+    else:
+        attempts += 1
+        if attempts < max_attempts:
+            print("Try Again")
+        else:
+            print("Account Locked")

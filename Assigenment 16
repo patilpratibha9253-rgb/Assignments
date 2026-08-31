@@ -1,0 +1,23 @@
+# Student Marks Analyzer
+
+marks = [78, 65, 89, 45, 92, 56, 71, 84]
+
+# Display first and last student's marks
+print("First Student Mark:", marks[0])
+print("Last Student Mark:", marks[-1])
+
+# Display middle four students' marks
+print("Middle Four Marks:", marks[2:6])
+
+# Replace the lowest mark with 50
+lowest_index = marks.index(min(marks))
+marks[lowest_index] = 50
+
+# Add a new student's mark at the end
+marks.append(88)
+
+# Remove the first student's mark
+marks.pop(0)
+
+# Display updated list
+print("Updated Marks List:", marks)

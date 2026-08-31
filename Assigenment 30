@@ -1,0 +1,83 @@
+# Employee Payroll System
+
+# Parent class
+class Employee:
+    def __init__(self, employee_id, name, basic_salary):
+        self.employee_id = employee_id
+        self.name = name
+        self.__basic_salary = basic_salary   # Private variable
+
+    # Getter method
+    def get_basic_salary(self):
+        return self.__basic_salary
+
+    # Setter method
+    def set_basic_salary(self, salary):
+        if salary >= 0:
+            self.__basic_salary = salary
+        else:
+            print("Salary cannot be negative.")
+
+    # Calculate salary
+    def calculate_salary(self):
+        return self.__basic_salary
+
+    # Display employee details
+    def display_details(self):
+        print("\nEmployee ID:", self.employee_id)
+        print("Name:", self.name)
+        print("Basic Salary: ₹", self.get_basic_salary())
+
+
+# Child class - Manager
+class Manager(Employee):
+    def __init__(self, employee_id, name, basic_salary, bonus):
+        super().__init__(employee_id, name, basic_salary)
+        self.bonus = bonus
+
+    def calculate_salary(self):
+        return self.get_basic_salary() + self.bonus
+
+    def display_details(self):
+        super().display_details()
+        print("Bonus: ₹", self.bonus)
+        print("Final Salary: ₹", self.calculate_salary())
+
+
+# Child class - Developer
+class Developer(Employee):
+    def __init__(self, employee_id, name, basic_salary, overtime_pay):
+        super().__init__(employee_id, name, basic_salary)
+        self.overtime_pay = overtime_pay
+
+    def calculate_salary(self):
+        return self.get_basic_salary() + self.overtime_pay
+
+    def display_details(self):
+        super().display_details()
+        print("Overtime Pay: ₹", self.overtime_pay)
+        print("Final Salary: ₹", self.calculate_salary())
+
+
+# Creating Manager object
+manager = Manager(101, "Rahul", 50000, 10000)
+
+# Creating Developer object
+developer = Developer(102, "Priya", 40000, 5000)
+
+
+# Display Manager details
+print("===== MANAGER DETAILS =====")
+manager.display_details()
+
+# Display Developer details
+print("\n===== DEVELOPER DETAILS =====")
+developer.display_details()
+
+
+# Using setter method
+print("\n===== UPDATING SALARY =====")
+developer.set_basic_salary(45000)
+
+print("Updated Basic Salary: ₹", developer.get_basic_salary())
+print("Updated Final Salary: ₹", developer.calculate_salary())

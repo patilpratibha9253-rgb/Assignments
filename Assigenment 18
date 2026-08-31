@@ -1,0 +1,37 @@
+# Shopping Cart Manager
+
+cart = ["Milk", "Bread", "Rice"]
+
+prices = {
+    "Milk": 40,
+    "Bread": 35,
+    "Rice": 60
+}
+
+# Display each product and price
+print("Shopping Cart:")
+
+total = 0
+
+for product in cart:
+    print(product, ":", prices[product])
+    total += prices[product]
+
+print("Total Bill:", total)
+
+# Add one more product
+cart.append("Sugar")
+
+# Update its price
+prices["Sugar"] = 45
+
+# Calculate new total
+new_total = 0
+
+for product in cart:
+    new_total += prices[product]
+
+print("\nAfter Adding New Product:")
+print("Cart:", cart)
+print("Sugar Price:", prices["Sugar"])
+print("New Total Bill:", new_total)

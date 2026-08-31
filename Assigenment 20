@@ -1,0 +1,19 @@
+# Employee Salary Calculator
+
+def calculate_salary(basic, hra=2000, bonus=1000):
+    return basic + hra + bonus
+
+
+# 1. Positional arguments
+salary1 = calculate_salary(20000, 3000, 2000)
+print("Positional Arguments:", salary1)
+
+
+# 2. Keyword arguments
+salary2 = calculate_salary(basic=20000, hra=3000, bonus=2000)
+print("Keyword Arguments:", salary2)
+
+
+# 3. Default arguments
+salary3 = calculate_salary(20000)
+print("Default Arguments:", salary3)

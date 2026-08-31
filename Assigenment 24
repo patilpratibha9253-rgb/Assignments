@@ -1,0 +1,13 @@
+# Temperature Converter / City Lookup
+
+cities = ["Bengaluru", "Mumbai", "Delhi", "Chennai", "Hyderabad"]
+
+try:
+    index = int(input("Enter city index (0-4): "))
+    print("City:", cities[index])
+
+except IndexError:
+    print("Invalid index! Please enter a number from 0 to 4.")
+
+except ValueError:
+    print("Please enter a valid number.")

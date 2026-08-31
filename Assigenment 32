@@ -1,0 +1,36 @@
+# Data Analysis Using Python Libraries
+
+import math
+import random
+import statistics
+
+# Generate 50 random integers between 1 and 100
+numbers = []
+
+for i in range(50):
+    numbers.append(random.randint(1, 100))
+
+# Display the numbers
+print("===== 50 RANDOM NUMBERS =====")
+print(numbers)
+
+# Calculate statistical values
+mean = statistics.mean(numbers)
+median = statistics.median(numbers)
+standard_deviation = statistics.stdev(numbers)
+maximum = max(numbers)
+minimum = min(numbers)
+
+print("\n===== DATA ANALYSIS =====")
+print("Mean:", mean)
+print("Median:", median)
+print("Standard Deviation:", standard_deviation)
+print("Maximum:", maximum)
+print("Minimum:", minimum)
+
+# Display square root of each even number
+print("\n===== SQUARE ROOT OF EVEN NUMBERS =====")
+
+for number in numbers:
+    if number % 2 == 0:
+        print("Square root of", number, "=", math.sqrt(number))

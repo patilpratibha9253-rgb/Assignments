@@ -1,0 +1,76 @@
+# Online Payment Gateway
+
+from abc import ABC, abstractmethod
+
+
+# Abstract class
+class Payment(ABC):
+
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+    @abstractmethod
+    def generate_receipt(self):
+        pass
+
+
+# Credit Card Payment
+class CreditCardPayment(Payment):
+
+    def pay(self, amount):
+        print("\nProcessing Credit Card payment...")
+        print("Payment of ₹", amount, "successful.")
+
+    def generate_receipt(self):
+        print("Receipt generated for Credit Card payment.")
+
+
+# UPI Payment
+class UPI(Payment):
+
+    def pay(self, amount):
+        print("\nProcessing UPI payment...")
+        print("Payment of ₹", amount, "successful.")
+
+    def generate_receipt(self):
+        print("Receipt generated for UPI payment.")
+
+
+# Net Banking Payment
+class NetBanking(Payment):
+
+    def pay(self, amount):
+        print("\nProcessing Net Banking payment...")
+        print("Payment of ₹", amount, "successful.")
+
+    def generate_receipt(self):
+        print("Receipt generated for Net Banking payment.")
+
+
+# Main program
+print("===== ONLINE PAYMENT GATEWAY =====")
+print("1. Credit Card")
+print("2. UPI")
+print("3. Net Banking")
+
+choice = input("Choose payment mode: ")
+amount = float(input("Enter amount: ₹"))
+
+# Runtime Polymorphism
+if choice == "1":
+    payment = CreditCardPayment()
+
+elif choice == "2":
+    payment = UPI()
+
+elif choice == "3":
+    payment = NetBanking()
+
+else:
+    print("Invalid payment mode.")
+    exit()
+
+# Same methods work differently for different objects
+payment.pay(amount)
+payment.generate_receipt()

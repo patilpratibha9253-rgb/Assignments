@@ -1,0 +1,142 @@
+# Student Information System
+
+# Student names - List
+students = ["Alice", "Bob", "John"]
+
+# Roll numbers - Tuple
+roll_numbers = (101, 102, 103)
+
+# Subjects - Set
+subjects = {"Python", "DBMS", "Java"}
+
+# Marks - Dictionary
+marks = {
+    "Alice": 85,
+    "Bob": 92,
+    "John": 78
+}
+
+
+# Function to add a student
+def add_student(name, roll_no, mark):
+    try:
+        if not name:
+            raise ValueError("Student name cannot be empty.")
+
+        if mark < 0 or mark > 100:
+            raise ValueError("Marks must be between 0 and 100.")
+
+        students.append(name)
+
+        # Tuple cannot be modified, so we only display the roll number
+        print("Student added successfully.")
+        return True
+
+    except ValueError as e:
+        print("Invalid input:", e)
+        return False
+
+    finally:
+        print("Add student operation completed.")
+
+
+# Function to update marks
+def update_marks(name, new_mark):
+    try:
+        if name not in students:
+            raise KeyError("Student not found.")
+
+        if new_mark < 0 or new_mark > 100:
+            raise ValueError("Marks must be between 0 and 100.")
+
+        marks[name] = new_mark
+
+    except KeyError as e:
+        print(e)
+
+    except ValueError as e:
+        print("Invalid marks:", e)
+
+    else:
+        print("Marks updated successfully.")
+        return True
+
+    finally:
+        print("Update marks operation completed.")
+
+
+# Function to display topper
+def display_topper():
+    try:
+        if not marks:
+            raise ValueError("No student records available.")
+
+        topper = max(marks, key=marks.get)
+
+        print("Topper:", topper)
+        print("Marks:", marks[topper])
+
+        return topper
+
+    except ValueError as e:
+        print(e)
+
+    finally:
+        print("Topper operation completed.")
+
+
+# Function to search student
+def search_student(name):
+    try:
+        if name not in students:
+            raise KeyError("Student not found.")
+
+        index = students.index(name)
+
+    except KeyError as e:
+        print(e)
+        return None
+
+    else:
+        print("Student Found!")
+        print("Name:", name)
+        print("Roll Number:", roll_numbers[index])
+        print("Marks:", marks.get(name, "Not available"))
+        return index
+
+    finally:
+        print("Search operation completed.")
+
+
+# Display initial information
+print("Students:", students)
+print("Roll Numbers:", roll_numbers)
+print("Subjects:", subjects)
+print("Marks:", marks)
+
+print("\n--- Add Student ---")
+add_student("David", 104, 88)
+marks["David"] = 88
+
+print("\n--- Update Marks ---")
+update_marks("Bob", 95)
+
+print("\n--- Display Topper ---")
+display_topper()
+
+print("\n--- Search Student ---")
+search_student("Alice")
+
+print("\n--- Wrong Index Example ---")
+try:
+    index = int(input("Enter student index: "))
+    print("Student:", students[index])
+
+except IndexError:
+    print("Wrong index! Please enter a valid index.")
+
+except ValueError:
+    print("Invalid input! Please enter a number.")
+
+finally:
+    print("Program completed.")

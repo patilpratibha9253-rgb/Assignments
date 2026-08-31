@@ -1,0 +1,26 @@
+# Log File Cleaner
+
+try:
+    # Open the original log file
+    file = open("log.txt", "r")
+
+    # Open the cleaned log file
+    clean_file = open("clean_log.txt", "w")
+
+    # Read the file line by line
+    for line in file:
+        line = line.strip()
+
+        # Remove blank lines
+        if line != "":
+            clean_file.write(line + "\n")
+
+    # Close both files
+    file.close()
+    clean_file.close()
+
+    print("Log file cleaned successfully!")
+    print("Cleaned data saved in clean_log.txt")
+
+except FileNotFoundError:
+    print("Error: log.txt file does not exist.")

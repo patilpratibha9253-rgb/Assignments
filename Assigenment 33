@@ -1,0 +1,76 @@
+import requests
+from tabulate import tabulate
+
+
+def get_weather(city):
+    # Open-Meteo API does not require an API key
+    geo_url = "https://geocoding-api.open-meteo.com/v1/search"
+
+    params = {
+        "name": city,
+        "count": 1,
+        "language": "en",
+        "format": "json"
+    }
+
+    response = requests.get(geo_url, params=params)
+
+    if response.status_code != 200:
+        return None
+
+    location_data = response.json()
+
+    if "results" not in location_data:
+        return None
+
+    location = location_data["results"][0]
+
+    latitude = location["latitude"]
+    longitude = location["longitude"]
+
+    weather_url = "https://api.open-meteo.com/v1/forecast"
+
+    weather_params = {
+        "latitude": latitude,
+        "longitude": longitude,
+        "current": "temperature_2m,relative_humidity_2m,wind_speed_10m"
+    }
+
+    weather_response = requests.get(weather_url, params=weather_params)
+
+    if weather_response.status_code != 200:
+        return None
+
+    return weather_response.json()
+
+
+# Accept city name
+city = input("Enter city name: ")
+
+# Fetch weather
+weather = get_weather(city)
+
+if weather is None:
+    print("Weather information not found.")
+else:
+    current = weather["current"]
+
+    table = [
+        ["City", city],
+        ["Temperature", str(current["temperature_2m"]) + " °C"],
+        ["Humidity", str(current["relative_humidity_2m"]) + " %"],
+        ["Wind Speed", str(current["wind_speed_10m"]) + " km/h"]
+    ]
+
+    # Display formatted table
+    report = tabulate(table, headers=["Weather Detail", "Value"], tablefmt="grid")
+
+    print("\nWeather Information")
+    print(report)
+
+    # Save report to file
+    with open("weather_report.txt", "w") as file:
+        file.write("Weather Information\n")
+        file.write(report)
+
+    print("\nWeather report saved to weather_report.txt")

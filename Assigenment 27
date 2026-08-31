@@ -1,0 +1,117 @@
+# Daily Expense Tracker
+
+def add_expense():
+    date = input("Enter date (DD-MM-YYYY): ")
+    category = input("Enter category: ")
+    amount = float(input("Enter amount: "))
+
+    with open("expenses.txt", "a") as file:
+        file.write(f"{date},{category},{amount}\n")
+
+    print("Expense added successfully!")
+
+
+def display_expenses():
+    try:
+        with open("expenses.txt", "r") as file:
+            expenses = file.readlines()
+
+        if not expenses:
+            print("No expenses found.")
+            return
+
+        print("\n--- All Expenses ---")
+        for expense in expenses:
+            date, category, amount = expense.strip().split(",")
+            print(f"Date: {date} | Category: {category} | Amount: ₹{amount}")
+
+    except FileNotFoundError:
+        print("No expense file found.")
+
+
+def calculate_summary():
+    try:
+        with open("expenses.txt", "r") as file:
+            expenses = file.readlines()
+
+        if not expenses:
+            print("No expenses found.")
+            return
+
+        total = 0
+        highest = 0
+        transactions = 0
+
+        for expense in expenses:
+            date, category, amount = expense.strip().split(",")
+            amount = float(amount)
+
+            total += amount
+            transactions += 1
+
+            if amount > highest:
+                highest = amount
+
+        print("\n--- Expense Summary ---")
+        print("Total Expenditure: ₹", total)
+        print("Highest Expense: ₹", highest)
+        print("Number of Transactions:", transactions)
+
+    except FileNotFoundError:
+        print("No expense file found.")
+
+
+def search_category():
+    category_search = input("Enter category to search: ").lower()
+
+    try:
+        with open("expenses.txt", "r") as file:
+            expenses = file.readlines()
+
+        found = False
+
+        print("\n--- Search Results ---")
+
+        for expense in expenses:
+            date, category, amount = expense.strip().split(",")
+
+            if category.lower() == category_search:
+                print(f"Date: {date} | Category: {category} | Amount: ₹{amount}")
+                found = True
+
+        if not found:
+            print("No expenses found for this category.")
+
+    except FileNotFoundError:
+        print("No expense file found.")
+
+
+# Main Menu
+while True:
+    print("\n===== DAILY EXPENSE TRACKER =====")
+    print("1. Add Expense")
+    print("2. Display All Expenses")
+    print("3. Calculate Summary")
+    print("4. Search by Category")
+    print("5. Exit")
+
+    choice = input("Enter your choice: ")
+
+    if choice == "1":
+        add_expense()
+
+    elif choice == "2":
+        display_expenses()
+
+    elif choice == "3":
+        calculate_summary()
+
+    elif choice == "4":
+        search_category()
+
+    elif choice == "5":
+        print("Thank you for using Daily Expense Tracker!")
+        break
+
+    else:
+        print("Invalid choice. Please try again.")

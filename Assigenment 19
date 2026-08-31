@@ -1,0 +1,23 @@
+# Electricity Bill Calculator
+
+def calculate_bill(units):
+    if units <= 100:
+        bill = units * 5
+
+    elif units <= 200:
+        bill = (100 * 5) + ((units - 100) * 7)
+
+    else:
+        bill = (100 * 5) + (100 * 7) + ((units - 200) * 10)
+
+    return bill
+
+
+# Multiple customers
+customer1 = 80
+customer2 = 150
+customer3 = 250
+
+print("Customer 1 Bill: ₹", calculate_bill(customer1))
+print("Customer 2 Bill: ₹", calculate_bill(customer2))
+print("Customer 3 Bill: ₹", calculate_bill(customer3))

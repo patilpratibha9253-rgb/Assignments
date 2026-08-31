@@ -1,0 +1,45 @@
+# Student Marks File Analyzer
+
+# Step 1: Accept details of 10 students
+with open("marks.txt", "w") as file:
+    for i in range(10):
+        name = input(f"Enter name of student {i + 1}: ")
+        mark = float(input(f"Enter marks of {name}: "))
+
+        file.write(name + "," + str(mark) + "\n")
+
+
+# Step 2: Read the entire file
+students = []
+
+with open("marks.txt", "r") as file:
+    data = file.read()
+
+# Step 3: Process file contents
+lines = data.strip().split("\n")
+
+for line in lines:
+    name, mark = line.strip().split(",")
+    students.append((name, float(mark)))
+
+
+# Step 4: Extract marks
+marks = [mark for name, mark in students]
+
+highest = max(marks)
+lowest = min(marks)
+average = sum(marks) / len(marks)
+
+
+# Step 5: Display results
+print("\n--- Student Marks Analysis ---")
+
+print("Highest Mark:", highest)
+print("Lowest Mark:", lowest)
+print("Average Mark:", round(average, 2))
+
+print("\nStudents scoring above average:")
+
+for name, mark in students:
+    if mark > average:
+        print(name, ":", mark)

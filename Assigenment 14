@@ -1,0 +1,18 @@
+# Login Attempts
+
+correct_password = "admin123"
+attempts = 0
+
+while attempts < 3:
+    password = input("Enter Password: ")
+
+    if password == correct_password:
+        print("Login Successful")
+        break
+    else:
+        attempts += 1
+        if attempts < 3:
+            print("Try Again")
+
+if attempts == 3:
+    print("Account Locked")

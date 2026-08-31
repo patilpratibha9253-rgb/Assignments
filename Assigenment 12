@@ -1,0 +1,13 @@
+# Company Email Generator
+
+first_name = input("Enter First Name: ")
+last_name = input("Enter Last Name: ")
+company_name = input("Enter Company Name: ")
+
+# Create email
+email = first_name.lower() + "." + last_name.lower() + "@" + company_name.lower() + ".com"
+
+# Print details
+print("\nOriginal Name:", first_name, last_name)
+print("Uppercase Email:", email.upper())
+print("Length of Email:", len(email))

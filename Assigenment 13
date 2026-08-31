@@ -1,0 +1,11 @@
+# ATM Withdrawal
+
+balance = float(input("Enter Account Balance: "))
+withdrawal = float(input("Enter Withdrawal Amount: "))
+
+if withdrawal <= balance:
+    balance = balance - withdrawal
+    print("Transaction Successful")
+    print("Remaining Balance:", balance)
+else:
+    print("Insufficient Balance")

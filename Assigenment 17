@@ -1,0 +1,25 @@
+# Employee Records
+
+# Store employee IDs in a tuple
+employee_ids = (101, 102, 103, 104, 105)
+
+# Create a set of departments
+departments = {"HR", "IT", "Sales", "Finance", "IT"}
+
+# Print all employee IDs
+print("Employee IDs:", employee_ids)
+
+# Try modifying an employee ID
+try:
+    employee_ids[0] = 999
+except TypeError as e:
+    print("Error:", e)
+
+# Add a new department
+departments.add("Marketing")
+
+# Remove one department
+departments.remove("Sales")
+
+# Print only unique departments
+print("Unique Departments:", departments)

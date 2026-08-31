@@ -1,0 +1,16 @@
+# Student Record Lookup
+
+students = {
+    "Alice": 90,
+    "Bob": 85,
+    "John": 78
+}
+
+name = input("Enter student name: ")
+
+try:
+    marks = students[name]
+    print("Marks of", name, ":", marks)
+
+except KeyError:
+    print("Sorry, student record not found.")
